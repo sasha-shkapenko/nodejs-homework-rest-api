@@ -10,7 +10,7 @@ const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short'
 
 app.use(logger(formatsLogger))
 app.use(cors())
-app.use(express.json()) // middleware express.json() смотрит тело запроса в каком формате пришло 
+app.use(express.json())
 
 app.use('/api/contacts', contactsRouter)
 
