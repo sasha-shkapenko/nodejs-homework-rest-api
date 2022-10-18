@@ -2,7 +2,7 @@ const { RequestError } = require('../../helpers');
 const { Contact, schemas } = require('../../models/contact')
 
 const updateStatusContact = async (req, res, next) => {
-    const { error } = schemas.updayeFavFieldSchema.validate(req.body);
+    const { error } = schemas.updateFavFieldSchema.validate(req.body);
     if (error) {
         throw RequestError(400, error.message)
     }
