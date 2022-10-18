@@ -19,6 +19,11 @@ const contactSchema = new Schema({
         type: Boolean,
         default: false,
     },
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
+        required: true,
+    }
 }, { versionKey: false, timestamps: true })
 contactSchema.post('save', handleSaveErrors);
 
@@ -29,12 +34,12 @@ const addSchema = Joi.object({
     favorite: Joi.boolean(),
 });
 
-const updayeFavFieldSchema = Joi.object({
+const updateFavFieldSchema = Joi.object({
     favorite: Joi.boolean().required(),
 })
 const schemas = {
     addSchema,
-    updayeFavFieldSchema,
+    updateFavFieldSchema,
 }
 
 const Contact = model('contact', contactSchema);
