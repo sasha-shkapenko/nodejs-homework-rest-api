@@ -7,6 +7,8 @@ const { ctrlWrapper } = require('../../helpers')
 const ctrl = require('../../controllers/auth')
 
 router.post('/register', ctrlWrapper(ctrl.register));
+router.get('/verify/:verificationToken', ctrlWrapper(ctrl.verify));
+router.post('/verify', ctrlWrapper(ctrl.resendEmail));
 router.post('/login', ctrlWrapper(ctrl.login));
 router.get('/current', authenticate, ctrlWrapper(ctrl.getCurrent));
 router.get('/logout', authenticate, ctrlWrapper(ctrl.logout));
